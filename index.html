@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenOps — Built for Licensed Pesticide Applicators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green-deep:#071a0e;
+  --green-dark:#0d2918;
+  --green-mid:#14401f;
+  --green-brand:#1a5c2a;
+  --lime:#72d944;
+  --lime-dim:#5bb534;
+  --lime-pale:#d6f5bc;
+  --white:#ffffff;
+  --offwhite:#f4f9f0;
+  --gray-light:#e8ede4;
+  --gray-mid:#9aab94;
+  --gray-dark:#4a5a44;
+  --text:#1a1f18;
+  --amber:#f5a623;
+  --red:#e8453c;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,26,14,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(114,217,68,0.15);padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-mark{width:36px;height:36px;background:var(--lime);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--green-deep)}
+.nav-logo-text{font-family:'Syne',sans-serif;font-weight:700;font-size:20px;color:var(--white);letter-spacing:-0.5px}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-link{color:rgba(255,255,255,0.7);text-decoration:none;font-size:15px;font-weight:400;transition:color 0.2s}
+.nav-link:hover{color:var(--lime)}
+.nav-cta{background:var(--lime);color:var(--green-deep);padding:10px 22px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;transition:background 0.2s;white-space:nowrap}
+.nav-cta:hover{background:#85e84e}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--green-deep);padding:120px 2rem 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(114,217,68,0.08) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(26,92,42,0.4) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(114,217,68,0.12);border:1px solid rgba(114,217,68,0.3);border-radius:100px;padding:8px 16px;margin-bottom:2rem}
+.hero-badge-dot{width:8px;height:8px;background:var(--lime);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero-badge span{font-size:13px;color:var(--lime);font-weight:500;letter-spacing:0.5px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.hero-headline{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.8rem,5vw,4.5rem);line-height:1.05;letter-spacing:-2px;color:var(--white);margin-bottom:1.5rem}
+.hero-headline em{font-style:normal;color:var(--lime)}
+.hero-sub{font-size:1.15rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:2.5rem;font-weight:300;max-width:480px}
+.hero-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--lime);color:var(--green-deep);padding:16px 32px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;letter-spacing:-0.3px}
+.btn-primary:hover{background:#85e84e;transform:translateY(-1px)}
+.btn-secondary{color:rgba(255,255,255,0.7);font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color 0.2s}
+.btn-secondary:hover{color:var(--white)}
+.hero-trust{margin-top:3rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.5);font-size:14px}
+.trust-icon{color:var(--lime);font-size:16px}
+
+/* APP MOCKUP */
+.hero-app{position:relative}
+.app-frame{background:#0d2918;border:1px solid rgba(114,217,68,0.2);border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.5)}
+.app-topbar{background:#071a0e;border-bottom:1px solid rgba(114,217,68,0.15);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.app-logo-sm{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--white)}
+.app-tabs{display:flex;gap:4px}
+.app-tab{font-size:11px;padding:5px 12px;border-radius:6px;color:rgba(255,255,255,0.5);font-weight:500}
+.app-tab.active{background:rgba(114,217,68,0.15);color:var(--lime)}
+.app-body{padding:20px}
+.app-section-title{font-size:11px;font-weight:600;color:var(--lime);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.app-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.app-stat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px}
+.app-stat-num{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;color:var(--white);line-height:1}
+.app-stat-label{font-size:10px;color:rgba(255,255,255,0.4);margin-top:4px;font-weight:400}
+.app-stat-lime .app-stat-num{color:var(--lime)}
+.app-table-header{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:8px;padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.app-table-header span{font-size:10px;color:rgba(255,255,255,0.35);font-weight:500;text-transform:uppercase;letter-spacing:0.5px}
+.app-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:8px;padding:10px 10px;border-bottom:1px solid rgba(255,255,255,0.04);align-items:center}
+.app-row:last-child{border-bottom:none}
+.app-client-name{font-size:13px;color:var(--white);font-weight:500}
+.app-client-addr{font-size:11px;color:rgba(255,255,255,0.4)}
+.app-status{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:500;display:inline-block}
+.status-active{background:rgba(114,217,68,0.15);color:var(--lime)}
+.status-pending{background:rgba(245,166,35,0.15);color:var(--amber)}
+.app-amount{font-size:13px;color:var(--white);font-weight:500}
+.app-step-tag{font-size:10px;padding:3px 8px;background:rgba(255,255,255,0.07);border-radius:4px;color:rgba(255,255,255,0.5)}
+
+/* PROBLEM SECTION */
+.problem{background:var(--offwhite);padding:100px 2rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--green-brand);margin-bottom:1rem}
+.section-headline{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-1.5px;color:var(--green-deep);margin-bottom:1.5rem}
+.section-headline em{font-style:normal;color:var(--red)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem}
+.problem-copy p{font-size:1.05rem;color:var(--gray-dark);line-height:1.8;margin-bottom:1.2rem}
+.problem-copy strong{color:var(--green-deep);font-weight:600}
+.risk-cards{display:flex;flex-direction:column;gap:16px}
+.risk-card{background:var(--white);border:1px solid var(--gray-light);border-radius:14px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start}
+.risk-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.risk-red{background:rgba(232,69,60,0.1)}
+.risk-amber{background:rgba(245,166,35,0.1)}
+.risk-green{background:rgba(114,217,68,0.12)}
+.risk-title{font-weight:600;font-size:15px;color:var(--green-deep);margin-bottom:4px}
+.risk-desc{font-size:14px;color:var(--gray-dark);line-height:1.5}
+
+/* FEATURES */
+.features{background:var(--white);padding:100px 2rem}
+.features-header{text-align:center;max-width:680px;margin:0 auto 5rem}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.feature-card{background:var(--offwhite);border:1px solid var(--gray-light);border-radius:20px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.08)}
+.feature-mockup{background:var(--green-deep);padding:20px;min-height:180px;position:relative;overflow:hidden}
+.feat-mini-bar{height:4px;border-radius:2px;background:rgba(114,217,68,0.3);margin-bottom:16px}
+.feat-mini-row{height:10px;background:rgba(255,255,255,0.08);border-radius:3px;margin-bottom:6px}
+.feat-mini-row.lime{background:rgba(114,217,68,0.25)}
+.feat-mini-row.w80{width:80%}
+.feat-mini-row.w60{width:60%}
+.feat-mini-row.w90{width:90%}
+.feat-mini-row.w70{width:70%}
+.feat-mini-row.w50{width:50%}
+.feat-mini-chip{display:inline-block;background:rgba(114,217,68,0.2);border:1px solid rgba(114,217,68,0.3);border-radius:4px;padding:3px 10px;font-size:9px;color:var(--lime);font-weight:600;margin-bottom:8px}
+.feat-mini-stat{font-family:'Syne',sans-serif;font-weight:700;font-size:28px;color:var(--lime);margin-bottom:4px}
+.feat-mini-label{font-size:10px;color:rgba(255,255,255,0.4)}
+.feat-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.feat-mini-cell{background:rgba(255,255,255,0.05);border-radius:8px;padding:10px;text-align:center}
+.feat-mini-cell-num{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--white)}
+.feat-mini-cell-label{font-size:9px;color:rgba(255,255,255,0.4);margin-top:2px}
+.feature-body{padding:24px}
+.feature-number{font-size:12px;font-weight:600;color:var(--lime-dim);letter-spacing:1px;margin-bottom:8px}
+.feature-title{font-family:'Syne',sans-serif;font-weight:700;font-size:20px;color:var(--green-deep);line-height:1.2;margin-bottom:10px;letter-spacing:-0.5px}
+.feature-desc{font-size:14px;color:var(--gray-dark);line-height:1.6}
+
+/* COMPLIANCE BANNER */
+.compliance{background:var(--green-deep);padding:80px 2rem}
+.compliance-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.compliance-text .section-label{color:rgba(114,217,68,0.7)}
+.compliance-text .section-headline{color:var(--white)}
+.compliance-text .section-headline em{color:var(--lime)}
+.compliance-text p{color:rgba(255,255,255,0.6);line-height:1.8;font-size:1rem;margin-bottom:1rem}
+.compliance-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.comp-stat{background:rgba(255,255,255,0.05);border:1px solid rgba(114,217,68,0.15);border-radius:16px;padding:24px}
+.comp-stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:2.5rem;color:var(--lime);line-height:1;letter-spacing:-2px}
+.comp-stat-label{font-size:14px;color:rgba(255,255,255,0.55);margin-top:8px;line-height:1.4}
+
+/* WORKFLOW */
+.workflow{background:var(--offwhite);padding:100px 2rem}
+.workflow-header{text-align:center;max-width:680px;margin:0 auto 5rem}
+.workflow-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.workflow-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--lime),rgba(114,217,68,0.3));z-index:0}
+.workflow-step{text-align:center;position:relative;z-index:1}
+.step-circle{width:56px;height:56px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--green-deep);box-shadow:0 0 0 6px rgba(114,217,68,0.15)}
+.step-title{font-weight:600;font-size:14px;color:var(--green-deep);margin-bottom:6px;line-height:1.3}
+.step-desc{font-size:12px;color:var(--gray-dark);line-height:1.5;padding:0 8px}
+
+/* PRICING */
+.pricing{background:var(--white);padding:100px 2rem}
+.pricing-header{text-align:center;max-width:680px;margin:0 auto 4rem}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:1100px;margin:0 auto}
+.price-card{background:var(--offwhite);border:1px solid var(--gray-light);border-radius:20px;padding:32px 24px;transition:transform 0.2s}
+.price-card.featured{background:var(--green-deep);border-color:transparent;position:relative}
+.price-card:hover{transform:translateY(-3px)}
+.price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--lime);color:var(--green-deep);font-size:11px;font-weight:700;padding:4px 14px;border-radius:100px;white-space:nowrap}
+.price-tier{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-dark);margin-bottom:8px}
+.price-card.featured .price-tier{color:rgba(255,255,255,0.5)}
+.price-amount{font-family:'Syne',sans-serif;font-weight:800;font-size:3rem;line-height:1;letter-spacing:-2px;color:var(--green-deep);margin-bottom:4px}
+.price-card.featured .price-amount{color:var(--lime)}
+.price-per{font-size:14px;color:var(--gray-mid);margin-bottom:20px}
+.price-card.featured .price-per{color:rgba(255,255,255,0.4)}
+.price-limit{font-size:13px;color:var(--gray-dark);padding-bottom:16px;border-bottom:1px solid var(--gray-light);margin-bottom:16px}
+.price-card.featured .price-limit{color:rgba(255,255,255,0.6);border-bottom-color:rgba(255,255,255,0.1)}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.price-features li{font-size:13px;color:var(--gray-dark);display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+.price-features li::before{content:'✓';color:var(--lime-dim);font-weight:700;flex-shrink:0;margin-top:1px}
+.price-card.featured .price-features li{color:rgba(255,255,255,0.65)}
+.price-card.featured .price-features li::before{color:var(--lime)}
+.price-btn{display:block;text-align:center;padding:12px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;transition:all 0.2s}
+.price-btn-outline{border:1.5px solid var(--gray-light);color:var(--green-deep)}
+.price-btn-outline:hover{border-color:var(--green-brand);color:var(--green-brand)}
+.price-btn-filled{background:var(--lime);color:var(--green-deep)}
+.price-btn-filled:hover{background:#85e84e}
+
+/* TESTIMONIAL / BUILT BY */
+.built-by{background:var(--green-deep);padding:80px 2rem}
+.built-inner{max-width:900px;margin:0 auto;text-align:center}
+.quote-mark{font-family:'Syne',sans-serif;font-size:80px;line-height:0.8;color:rgba(114,217,68,0.2);display:block;margin-bottom:1rem}
+.quote-text{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.4rem,3vw,2rem);line-height:1.4;color:var(--white);letter-spacing:-0.5px;margin-bottom:2rem}
+.quote-text em{font-style:normal;color:var(--lime)}
+.quote-author{display:flex;align-items:center;gap:16px;justify-content:center}
+.author-avatar{width:56px;height:56px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--green-deep)}
+.author-info{text-align:left}
+.author-name{font-weight:600;color:var(--white);font-size:16px}
+.author-title{font-size:14px;color:rgba(255,255,255,0.5)}
+
+/* CTA */
+.cta-section{background:var(--lime-pale);padding:100px 2rem;text-align:center}
+.cta-inner{max-width:680px;margin:0 auto}
+.cta-inner .section-headline{letter-spacing:-1.5px}
+.cta-inner p{font-size:1.1rem;color:var(--gray-dark);margin-bottom:2.5rem;line-height:1.7}
+.cta-actions{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.btn-dark{background:var(--green-deep);color:var(--white);padding:16px 32px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
+.btn-dark:hover{background:var(--green-brand);transform:translateY(-1px)}
+.cta-note{font-size:14px;color:var(--gray-dark);margin-top:1.5rem}
+.cta-note strong{color:var(--green-brand)}
+
+/* FOOTER */
+footer{background:var(--green-deep);padding:60px 2rem 40px;border-top:1px solid rgba(114,217,68,0.1)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:4rem;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;margin-top:1rem;max-width:300px}
+.footer-col-title{font-weight:600;font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:1rem;letter-spacing:0.5px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{color:rgba(255,255,255,0.4);font-size:14px;text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--lime)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:13px;color:rgba(255,255,255,0.3)}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{font-size:13px;color:rgba(255,255,255,0.3);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid,.problem-grid,.compliance-inner{grid-template-columns:1fr;gap:3rem}
+  .features-grid{grid-template-columns:1fr}
+  .workflow-steps{grid-template-columns:1fr 1fr;gap:2rem}
+  .workflow-steps::before{display:none}
+  .pricing-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .footer-top{grid-template-columns:1fr;gap:2.5rem}
+  .nav-links .nav-link{display:none}
+}
+@media(max-width:600px){
+  .pricing-grid{grid-template-columns:1fr}
+  .compliance-stats{grid-template-columns:1fr}
+  .hero-app{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">G</div>
+      <span class="nav-logo-text">GreenOps</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#workflow" class="nav-link">How it works</a>
+      <a href="https://app.bergenpointpartners.com" class="nav-link">Sign in</a>
+      <a href="https://app.bergenpointpartners.com" class="nav-cta">Start free trial →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span>Built by the Industry, for the Industry</span>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-headline">The only platform built for <em>licensed pesticide applicators</em></h1>
+        <p class="hero-sub">Every application you make is a legal record. Proposals, scheduling, work orders, billing, and state-compliant pesticide reporting — all in one place. Built by a 35-year industry veteran who knows exactly what you need.</p>
+        <div class="hero-actions">
+          <a href="https://app.bergenpointpartners.com" class="btn-primary">Start your 14-day free trial →</a>
+          <a href="#workflow" class="btn-secondary">See how it works ↓</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><span class="trust-icon">✓</span>No credit card required</div>
+          <div class="trust-item"><span class="trust-icon">✓</span>Setup in under 10 minutes</div>
+          <div class="trust-item"><span class="trust-icon">✓</span>NY &amp; NJ built in, all states coming soon</div>
+        </div>
+      </div>
+      <div class="hero-app">
+        <div class="app-frame">
+          <div class="app-topbar">
+            <span class="app-logo-sm">GreenOps</span>
+            <div class="app-tabs">
+              <span class="app-tab">Clients</span>
+              <span class="app-tab active">Reporting</span>
+              <span class="app-tab">Billing</span>
+            </div>
+          </div>
+          <div class="app-body">
+            <div class="app-section-title">Compliance Reports — 2026</div>
+            <div class="app-stat-row">
+              <div class="app-stat app-stat-lime"><div class="app-stat-num">47</div><div class="app-stat-label">Reports filed</div></div>
+              <div class="app-stat"><div class="app-stat-num">$0</div><div class="app-stat-label">Fines</div></div>
+              <div class="app-stat"><div class="app-stat-num">100%</div><div class="app-stat-label">Compliant</div></div>
+            </div>
+            <div class="app-table-header">
+              <span>Client / Address</span>
+              <span>Product</span>
+              <span>Status</span>
+              <span>Step</span>
+            </div>
+            <div class="app-row">
+              <div><div class="app-client-name">Addesso, Gerry</div><div class="app-client-addr">128 Parkside, Bayonne</div></div>
+              <div class="app-client-name" style="font-size:12px">Allectus 0.225</div>
+              <span class="app-status status-active">✓ Filed</span>
+              <span class="app-step-tag">Step 1</span>
+            </div>
+            <div class="app-row">
+              <div><div class="app-client-name">Bianco, Natalie</div><div class="app-client-addr">51 Maple Ave, Kearny</div></div>
+              <div class="app-client-name" style="font-size:12px">Fertilome 19-0-6</div>
+              <span class="app-status status-active">✓ Filed</span>
+              <span class="app-step-tag">Step 2</span>
+            </div>
+            <div class="app-row">
+              <div><div class="app-client-name">Garcia, Debby</div><div class="app-client-addr">22 Oak St, Harrison</div></div>
+              <div class="app-client-name" style="font-size:12px">Dimension 2EW</div>
+              <span class="app-status status-pending">⏳ Pending</span>
+              <span class="app-step-tag">Step 1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="section-inner">
+    <div class="section-label">The compliance crisis</div>
+    <h2 class="section-headline">Every application is a <em>legal obligation.</em><br>Are you protected?</h2>
+    <div class="problem-grid">
+      <div class="problem-copy">
+        <p>As a licensed commercial pesticide applicator, <strong>every application you make must be documented</strong> — the product, EPA registration number, amount applied, weather conditions, applicator license, and more. These aren't suggestions. They're state law.</p>
+        <p>Most lawn care software was built for mowing routes and scheduling. <strong>None of them understand pesticide compliance.</strong> That leaves you exposed — using spreadsheets, paper logs, or nothing at all — hoping you never get audited.</p>
+        <p>GreenOps was built from scratch by someone who spent 35 years in the field facing exactly this problem. <strong>Every feature exists because a real applicator needed it.</strong></p>
+      </div>
+      <div class="risk-cards">
+        <div class="risk-card">
+          <div class="risk-icon risk-red">⚠</div>
+          <div>
+            <div class="risk-title">State fines for missing records</div>
+            <div class="risk-desc">State regulators audit commercial applicators. Missing or incomplete application records can result in license suspension and fines up to $5,000 per violation.</div>
+          </div>
+        </div>
+        <div class="risk-card">
+          <div class="risk-icon risk-amber">📋</div>
+          <div>
+            <div class="risk-title">48-hour notification requirements</div>
+            <div class="risk-desc">Sensitive site notifications, school notifications, and customer alerts — each with specific timing requirements. Manual tracking leaves you vulnerable.</div>
+          </div>
+        </div>
+        <div class="risk-card">
+          <div class="risk-icon risk-green">✓</div>
+          <div>
+            <div class="risk-title">GreenOps automates all of it</div>
+            <div class="risk-desc">Application records generate automatically when you complete a work order. Reports are always current, always accurate, always ready for inspection.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-inner">
+    <div class="features-header">
+      <div class="section-label">What you get</div>
+      <h2 class="section-headline" style="text-align:center">Everything your operation needs,<br>nothing you don't</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-mockup">
+          <div class="feat-mini-chip">Proposal #PRO-2026-04-15</div>
+          <div class="feat-mini-row w90"></div>
+          <div class="feat-mini-row w70"></div>
+          <div class="feat-mini-row lime w80"></div>
+          <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="background:rgba(114,217,68,0.1);border:1px solid rgba(114,217,68,0.2);border-radius:6px;padding:8px;text-align:center">
+              <div style="font-size:16px;font-weight:700;color:var(--lime);font-family:'Syne',sans-serif">$453</div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-top:2px">5-Step Basic</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04);border-radius:6px;padding:8px;text-align:center">
+              <div style="font-size:16px;font-weight:700;color:var(--white);font-family:'Syne',sans-serif">$567</div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-top:2px">7-Step Premium</div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-body">
+          <div class="feature-number">01 — Proposals & Pricing</div>
+          <div class="feature-title">Professional proposals built for your programs</div>
+          <p class="feature-desc">5-Step, 7-Step, and custom programs with automatic pricing based on square footage, travel costs, and product costs. Approve in one click.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-mockup">
+          <div class="feat-mini-chip">April 2026 — Schedule</div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:8px">
+            <div style="text-align:center;font-size:9px;color:rgba(255,255,255,0.3);padding:4px 0">M</div>
+            <div style="text-align:center;font-size:9px;color:rgba(255,255,255,0.3);padding:4px 0">T</div>
+            <div style="text-align:center;font-size:9px;color:rgba(255,255,255,0.3);padding:4px 0">W</div>
+            <div style="text-align:center;font-size:9px;color:rgba(255,255,255,0.3);padding:4px 0">T</div>
+            <div style="text-align:center;font-size:9px;color:rgba(255,255,255,0.3);padding:4px 0">F</div>
+            <div style="text-align:center;font-size:9px;color:rgba(255,255,255,0.3);padding:4px 0">S</div>
+            <div style="text-align:center;font-size:9px;color:rgba(255,255,255,0.3);padding:4px 0">S</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px">
+            <div style="background:rgba(114,217,68,0.25);border-radius:4px;padding:6px 2px;text-align:center;font-size:9px;color:var(--lime)">7</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:4px;padding:6px 2px;text-align:center;font-size:9px;color:rgba(255,255,255,0.4)">8</div>
+            <div style="background:rgba(114,217,68,0.15);border-radius:4px;padding:6px 2px;text-align:center;font-size:9px;color:var(--lime)">9</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:4px;padding:6px 2px;text-align:center;font-size:9px;color:rgba(255,255,255,0.4)">10</div>
+            <div style="background:rgba(114,217,68,0.25);border-radius:4px;padding:6px 2px;text-align:center;font-size:9px;color:var(--lime)">11</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:4px;padding:6px 2px;text-align:center;font-size:9px;color:rgba(255,255,255,0.4)">12</div>
+            <div style="background:rgba(255,255,255,0.05);border-radius:4px;padding:6px 2px;text-align:center;font-size:9px;color:rgba(255,255,255,0.4)">13</div>
+          </div>
+          <div style="margin-top:12px;background:rgba(114,217,68,0.1);border:1px solid rgba(114,217,68,0.2);border-radius:6px;padding:8px;font-size:10px;color:var(--lime)">
+            ✓ 6 stops scheduled for Monday
+          </div>
+        </div>
+        <div class="feature-body">
+          <div class="feature-number">02 — Calendar & Routes</div>
+          <div class="feature-title">Schedule and optimize your daily routes</div>
+          <p class="feature-desc">Schedule applications from approved proposals. Optimize stop order. Push SMS "On Our Way" notifications automatically when crews start.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-mockup">
+          <div class="feat-mini-chip">Pesticide Report — Auto-generated</div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:10px;color:rgba(255,255,255,0.4)">EPA Reg #</span>
+              <span style="font-size:10px;color:var(--white)">432-1521</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:10px;color:rgba(255,255,255,0.4)">Product</span>
+              <span style="font-size:10px;color:var(--white)">Allectus 0.225 GC</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:10px;color:rgba(255,255,255,0.4)">Amount</span>
+              <span style="font-size:10px;color:var(--lime)">2.4 lbs</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:10px;color:rgba(255,255,255,0.4)">Temp / Wind</span>
+              <span style="font-size:10px;color:var(--white)">72°F / 5-10 mph</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:10px;color:rgba(255,255,255,0.4)">Applicator Lic.</span>
+              <span style="font-size:10px;color:var(--white)">CPA-47821</span>
+            </div>
+          </div>
+          <div style="margin-top:12px;background:rgba(114,217,68,0.12);border:1px solid rgba(114,217,68,0.25);border-radius:6px;padding:8px;display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:10px;color:var(--lime)">✓ State Compliant</span>
+            <span style="font-size:10px;color:rgba(255,255,255,0.4)">Saved to client file</span>
+          </div>
+        </div>
+        <div class="feature-body">
+          <div class="feature-number">03 — Compliance Reports</div>
+          <div class="feature-title">Automatic pesticide records, always audit-ready</div>
+          <p class="feature-desc">Complete a work order and the state-compliant pesticide report generates automatically. EPA number, product, applicator, weather — all captured. Stored in client files.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE STATS -->
+<section class="compliance">
+  <div class="compliance-inner">
+    <div class="compliance-text">
+      <div class="section-label">Why it matters</div>
+      <h2 class="section-headline">State regulators are <em>getting stricter.</em> Are you ready?</h2>
+      <p>State regulators have increased enforcement actions against commercial applicators nationwide. Incomplete records, missing notification logs, and unlicensed applications are the top violations cited.</p>
+      <p>GreenOps keeps you protected regardless of your state. Every application is documented. Every notification is logged. Every report is ready when an inspector shows up.</p>
+    </div>
+    <div class="compliance-stats">
+      <div class="comp-stat">
+        <div class="comp-stat-num">$5,000</div>
+        <div class="comp-stat-label">Max fine per violation for missing pesticide application records</div>
+      </div>
+      <div class="comp-stat">
+        <div class="comp-stat-num">48 hrs</div>
+        <div class="comp-stat-label">Advance notification required for sensitive site applications</div>
+      </div>
+      <div class="comp-stat">
+        <div class="comp-stat-num">50</div>
+        <div class="comp-stat-label">States with unique pesticide reporting requirements — NY &amp; NJ built in — all 50 states coming soon</div>
+      </div>
+      <div class="comp-stat">
+        <div class="comp-stat-num">0</div>
+        <div class="comp-stat-label">GreenOps customers with compliance violations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="workflow" id="workflow">
+  <div class="section-inner">
+    <div class="workflow-header">
+      <div class="section-label">How it works</div>
+      <h2 class="section-headline" style="text-align:center">From quote to compliance record<br>in five simple steps</h2>
+    </div>
+    <div class="workflow-steps">
+      <div class="workflow-step">
+        <div class="step-circle">1</div>
+        <div class="step-title">Add your client</div>
+        <div class="step-desc">Enter property address and details. GreenOps calculates pricing automatically.</div>
+      </div>
+      <div class="workflow-step">
+        <div class="step-circle">2</div>
+        <div class="step-title">Build a proposal</div>
+        <div class="step-desc">Choose program, add services. Send a professional PDF proposal in seconds.</div>
+      </div>
+      <div class="workflow-step">
+        <div class="step-circle">3</div>
+        <div class="step-title">Schedule the work</div>
+        <div class="step-desc">Put it on the calendar. Optimize route. Send automated notifications.</div>
+      </div>
+      <div class="workflow-step">
+        <div class="step-circle">4</div>
+        <div class="step-title">Complete work order</div>
+        <div class="step-desc">Fill out the digital work order in the field. Log products applied.</div>
+      </div>
+      <div class="workflow-step">
+        <div class="step-circle">5</div>
+        <div class="step-title">Records auto-generate</div>
+        <div class="step-desc">Pesticide report, invoice, and client file update automatically. Done.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <div class="pricing-header">
+      <div class="section-label">Simple pricing</div>
+      <h2 class="section-headline" style="text-align:center;margin-bottom:1rem">Scale with your business</h2>
+      <p style="color:var(--gray-dark);font-size:1rem">All plans include a 14-day free trial. No credit card required to start.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$49</div>
+        <div class="price-per">/month</div>
+        <div class="price-limit">Up to 40 clients · 2 users</div>
+        <ul class="price-features">
+          <li>Full operations suite</li>
+          <li>Proposals & scheduling</li>
+          <li>Work orders & billing</li>
+          <li>Pesticide records — view only</li>
+          <li>Stripe online payments</li>
+        </ul>
+        <a href="https://app.bergenpointpartners.com" class="price-btn price-btn-outline">Start free trial</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Most popular</div>
+        <div class="price-tier">Professional</div>
+        <div class="price-amount">$149</div>
+        <div class="price-per">/month</div>
+        <div class="price-limit">Up to 125 clients · 4 users</div>
+        <ul class="price-features">
+          <li>Everything in Starter</li>
+          <li>Full compliance records</li>
+          <li>NY &amp; NJ built in, all states coming soon</li>
+          <li>Client file auto-backup</li>
+          <li>Priority email support</li>
+        </ul>
+        <a href="https://app.bergenpointpartners.com" class="price-btn price-btn-filled">Start free trial</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Company</div>
+        <div class="price-amount">$299</div>
+        <div class="price-per">/month</div>
+        <div class="price-limit">Up to 300 clients · 15 users</div>
+        <ul class="price-features">
+          <li>Everything in Professional</li>
+          <li>All 50 state exports</li>
+          <li>Full business metrics</li>
+          <li>Annual reports included</li>
+          <li>Phone & email support</li>
+        </ul>
+        <a href="https://app.bergenpointpartners.com" class="price-btn price-btn-outline">Start free trial</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Enterprise</div>
+        <div class="price-amount">$599</div>
+        <div class="price-per">/month</div>
+        <div class="price-limit">Unlimited clients & users</div>
+        <ul class="price-features">
+          <li>Everything in Company</li>
+          <li>Dedicated account manager</li>
+          <li>Custom onboarding & training</li>
+          <li>SLA 99.9% uptime</li>
+          <li>White-label option</li>
+        </ul>
+        <a href="https://app.bergenpointpartners.com" class="price-btn price-btn-outline">Contact us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT BY -->
+<section class="built-by">
+  <div class="built-inner">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">I built GreenOps because after 35 years in the field, I knew <em>no one else was going to.</em> Every other platform was built for landscapers. We're pesticide applicators. The compliance requirements are completely different — and the stakes are your license.</p>
+    <div class="quote-author">
+      <div class="author-avatar">WB</div>
+      <div class="author-info">
+        <div class="author-name">Bill Bianco</div>
+        <div class="author-title">Founder, GreenOps · 35-year licensed pesticide applicator</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label">Get started today</div>
+    <h2 class="section-headline">Stop risking your license.<br>Start your free trial now.</h2>
+    <p>Join licensed pesticide applicators who've replaced spreadsheets, paper logs, and guesswork with a platform built specifically for their compliance requirements.</p>
+    <div class="cta-actions">
+      <a href="https://app.bergenpointpartners.com" class="btn-dark">Start your 14-day free trial →</a>
+    </div>
+    <p class="cta-note"><strong>No credit card required.</strong> Full access for 14 days. Cancel anytime.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="margin-bottom:0">
+          <div class="nav-logo-mark">G</div>
+          <span class="nav-logo-text">GreenOps</span>
+        </a>
+        <p>The only lawn care management platform built for licensed commercial pesticide applicators. Built by the industry, for the industry.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#workflow">How it works</a></li>
+          <li><a href="https://app.bergenpointpartners.com">Sign in</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:greenops@bergenpointpartners.com">greenops@bergenpointpartners.com</a></li>
+          <li><a href="#">Bergen Point Partners, LLC</a></li>
+          <li><a href="#">Bayonne, New Jersey</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Bergen Point Partners, LLC. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('nav');
+  if(window.scrollY>50){nav.style.background='rgba(7,26,14,0.98)'}
+  else{nav.style.background='rgba(7,26,14,0.95)'}
+});
+</script>
+</body>
+</html>
